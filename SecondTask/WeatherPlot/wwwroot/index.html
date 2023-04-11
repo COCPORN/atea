@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Atea Task #2</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Atea Task #2</h1>
+    <div>
+        <canvas id="combined"></canvas>        
+    </div>
+    <script>
+        const apiUrl = "https://localhost:7237/mintempmaxwind";
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Extract the labels and values from the data
+                const labels = data.map(item => item.city);
+                const highestWindSpeedValues = data.map(item => item.highestWindSpeed.windSpeed);
+                const lowestTemperatureValues = data.map(item => item.minTemperature.temperature);
+
+                // Not quite sure where to put these in the charts, perhaps in the tooltips for the bar?
+                const highestWindSpeedTimestamps = data.map(item => item.highestWindSpeed.timestamp);
+                const lowestTemperatureTimestamps = data.map(item => item.minTemperature.timestamp);
+
+                const ctx = document.getElementById('combined').getContext('2d');
+                const chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Highest Windspeeds',
+                            data: highestWindSpeedValues,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Lowest Temperature',
+                            data: lowestTemperatureValues,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        events: ['click']
+                    }
+                });
+
+                chart.canvas.addEventListener('click', function (event) {
+                    const activeElements = Chart.getChart("combined").getElementsAtEvent(event);
+                    if (activeElements.length > 0) {
+                        const clickedElementIndex = activeElements[0]._index;
+                        const clickedElementDatasetIndex = activeElements[0]._datasetIndex;
+                        const clickedElementLabel = chart.data.labels[clickedElementIndex];
+                        const clickedElementValue = chart.data.datasets[clickedElementDatasetIndex].data[clickedElementIndex];
+                        alert(`You clicked the ${chart.data.datasets[clickedElementDatasetIndex].label} for ${clickedElementLabel}: ${clickedElementValue}`);
+                    }
+                });
+
+            })
+            .catch(error => console.error(error));
+    </script>
+</body>
+</html>
