@@ -1,5 +1,18 @@
 # Atea
 
+I spent 11 hours on an assignment to get an interview with Atea in Norway. I have worked with IT since forever. You have used things I have made.
+
+Feel free to check out my CV.
+
+## Introduction
+
+Their response was:
+
+* Bad design skills.
+* The code is mostly not readable.
+* Bad code quality.
+
+## Here is my application, as provided to them before their response:
 
 ## Task 1
 
