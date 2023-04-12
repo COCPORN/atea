@@ -1,5 +1,6 @@
 # Atea
 
+
 ## Task 1
 
 This solves task 1 of the Atea assignment.
@@ -58,3 +59,77 @@ Time spent: Probably around 5-6 hours.
 - Probably 100 other things :)
 
 Total time spent: Perhaps 10-11 hours.
+
+# The original assignment
+
+## Original assignment
+
+We have made it a general practice in our recruitment (FTE or Consultants) to conduct a screening process through a little homework that demonstrates the skill level they possess in the specific areas that are of particular importance to us.
+
+# The Process & instructions:
+
+Timeframe: April 12th
+
+Please, describe each task separately:
+
+How much time it took for you to complete it (hours from start to finish);
+
+Some challenges/ideas/comments on each task;
+
+After receiving the completed tasks, we will review them and book you a  meeting where we will share with our conclusions before we move forward
+
+Technical assignments:
+
+First task
+
+Must use:
+
+- Azure Function (Cloud/Local)
+
+- Azure Storage (Cloud /Local storage emulator)
+
+a.        	Table
+
+b.        	Blob
+
+•         	.Net Core 6
+
+Achieve:
+
+•         	Every minute, fetch data from https://api.publicapis.org/random?auth=null and store success/failure attempt log in the table and full payload in the blob.
+
+•         	Create a GET API call to list all logs for the specific time period (from/to)
+
+•         	Create a GET API call to fetch a payload from blob for the specific log entry
+
+•         	Publish code on GitHub (public)
+
+ 
+
+Second task
+
+ 
+
+Must use:
+
+•             ASP.NET CORE MVC (6)
+
+•         	C#
+
+•         	JavaScript or Typescript
+
+Achieve:
+
+Using any public weather API receive data (country, city, temperature, clouds, wind speed) from at least 10 cities in 5 countries
+
+with periodical update 1/min,
+
+store this data in the database
+
+and show the 2 graphs:
+
+- min temperature (Country\City\Temperature\Last update time)
+
+- highest wind speed (Country\City\Wind Speed\Last update time)
+
+- temperature & wind speed trend for last 2 hours on click for both previous graphs
