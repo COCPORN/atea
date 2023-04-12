@@ -77,6 +77,7 @@ app.MapGet("/logentries", async ([FromQuery][Required] DateTime from,
             IsSuccessStatusCode = (int)le.HttpStatusCode >= 200 && (int)le.HttpStatusCode <= 299
         }).ToList());
 
+        // Just keep overwriting the exposed continuation token, ultimately nulling it
         response.ContinuationToken = entry.ContinuationToken;
 
         if (maxEntries != 0

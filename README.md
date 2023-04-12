@@ -46,7 +46,7 @@ Did not finish:
 
 - In the alotted time, I couldn't make the chart respond to clicks in a meaningful way. I would have liked to have the chart show the data for the selected city, but I didn't have time to implement it
 
-Time spend: Probably around 5-6 hours.
+Time spent: Probably around 5-6 hours.
 
 ## Other improvements
 
