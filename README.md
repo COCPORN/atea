@@ -73,6 +73,18 @@ Time spent: Probably around 5-6 hours.
 
 Total time spent: Perhaps 10-11 hours.
 
+# How to run
+
+Just clone it, open it in Visual Studio 2022 and run it. It should just work. You need to run azurite, I run it like this:
+
+> `azurite -s -l c:\azurite -d c:\azurite\debug.log`
+
+You also probably need to initialize the database for WeatherPlot:
+
+> `dotnet ef database update`
+
+This will run the initial migration and create the database.
+
 # The original assignment
 
 ## Original assignment
